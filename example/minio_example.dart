@@ -53,12 +53,16 @@ void main() async {
 
   await minio.listObjects(bucket).forEach((chunk) {
     print('--- objects:');
-    chunk.objects.forEach((o) => print(o.key));
+    for (var o in chunk.objects) {
+      print(o.key);
+    }
   });
 
   await minio.listObjectsV2(bucket).forEach((chunk) {
     print('--- objects(v2):');
-    chunk.objects.forEach((o) => print(o.key));
+    for (var o in chunk.objects) {
+      print(o.key);
+    }
   });
 
   final stat = await minio.statObject(bucket, object);

@@ -14,23 +14,23 @@ class MinioError {
 }
 
 class MinioAnonymousRequestError extends MinioError {
-  MinioAnonymousRequestError(String message) : super(message);
+  MinioAnonymousRequestError(String super.message);
 }
 
 class MinioInvalidArgumentError extends MinioError {
-  MinioInvalidArgumentError(String message) : super(message);
+  MinioInvalidArgumentError(String super.message);
 }
 
 class MinioInvalidPortError extends MinioError {
-  MinioInvalidPortError(String message) : super(message);
+  MinioInvalidPortError(String super.message);
 }
 
 class MinioInvalidEndpointError extends MinioError {
-  MinioInvalidEndpointError(String message) : super(message);
+  MinioInvalidEndpointError(String super.message);
 }
 
 class MinioInvalidBucketNameError extends MinioError {
-  MinioInvalidBucketNameError(String message) : super(message);
+  MinioInvalidBucketNameError(String super.message);
 
   static void check(String bucket) {
     if (isValidBucketName(bucket)) return;
@@ -39,7 +39,7 @@ class MinioInvalidBucketNameError extends MinioError {
 }
 
 class MinioInvalidObjectNameError extends MinioError {
-  MinioInvalidObjectNameError(String message) : super(message);
+  MinioInvalidObjectNameError(String super.message);
 
   static void check(String object) {
     if (isValidObjectName(object)) return;
@@ -48,23 +48,23 @@ class MinioInvalidObjectNameError extends MinioError {
 }
 
 class MinioAccessKeyRequiredError extends MinioError {
-  MinioAccessKeyRequiredError(String message) : super(message);
+  MinioAccessKeyRequiredError(String super.message);
 }
 
 class MinioSecretKeyRequiredError extends MinioError {
-  MinioSecretKeyRequiredError(String message) : super(message);
+  MinioSecretKeyRequiredError(String super.message);
 }
 
 class MinioExpiresParamError extends MinioError {
-  MinioExpiresParamError(String message) : super(message);
+  MinioExpiresParamError(String super.message);
 }
 
 class MinioInvalidDateError extends MinioError {
-  MinioInvalidDateError(String message) : super(message);
+  MinioInvalidDateError(String super.message);
 }
 
 class MinioInvalidPrefixError extends MinioError {
-  MinioInvalidPrefixError(String message) : super(message);
+  MinioInvalidPrefixError(String super.message);
 
   static void check(String prefix) {
     if (isValidPrefix(prefix)) return;
@@ -73,19 +73,19 @@ class MinioInvalidPrefixError extends MinioError {
 }
 
 class MinioInvalidBucketPolicyError extends MinioError {
-  MinioInvalidBucketPolicyError(String message) : super(message);
+  MinioInvalidBucketPolicyError(String super.message);
 }
 
 class MinioIncorrectSizeError extends MinioError {
-  MinioIncorrectSizeError(String message) : super(message);
+  MinioIncorrectSizeError(String super.message);
 }
 
 class MinioInvalidXMLError extends MinioError {
-  MinioInvalidXMLError(String message) : super(message);
+  MinioInvalidXMLError(String super.message);
 }
 
 class MinioS3Error extends MinioError {
-  MinioS3Error(String? message, [this.error, this.response]) : super(message);
+  MinioS3Error(super.message, [this.error, this.response]);
 
   Error? error;
 

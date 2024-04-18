@@ -10,7 +10,7 @@ import 'package:minio/src/minio_sign.dart';
 import 'package:minio/src/utils.dart';
 
 class MinioRequest extends BaseRequest {
-  MinioRequest(String method, Uri url, {this.onProgress}) : super(method, url);
+  MinioRequest(super.method, super.url, {this.onProgress});
 
   dynamic body;
 

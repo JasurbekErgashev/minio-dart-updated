@@ -3,7 +3,7 @@ import 'dart:typed_data';
 
 import 'package:minio/io.dart';
 import 'package:minio/minio.dart';
-import 'package:minio/src/minio_models_generated.dart';
+import 'package:minio/src/minio_models_generated.dart' as mmg;
 import 'package:minio/src/utils.dart';
 import 'package:test/test.dart';
 
@@ -324,7 +324,7 @@ void testGetObject() {
     final minio = getMinioClient();
     final bucketName = uniqueName();
     final object = uniqueName();
-    final objectUtf8 = uniqueName() + '/あるところ/某个文件.🦐';
+    final objectUtf8 = '${uniqueName()}/あるところ/某个文件.🦐';
     final objectData = Uint8List.fromList([1, 2, 3]);
 
     setUpAll(() async {
@@ -506,7 +506,7 @@ void testSetBucketNotification() {
     test('succeeds', () async {
       await minio.setBucketNotification(
         bucketName,
-        NotificationConfiguration(null, null, null),
+        mmg.NotificationConfiguration(null, null, null),
       );
     });
   });
@@ -577,7 +577,7 @@ void testStatObject() {
     final minio = getMinioClient();
     final bucketName = uniqueName();
     final object = uniqueName();
-    final objectUtf8 = uniqueName() + 'オブジェクト。📦';
+    final objectUtf8 = '${uniqueName()}オブジェクト。📦';
     final data = Uint8List.fromList([1, 2, 3, 4, 5]);
 
     setUpAll(() async {
@@ -684,7 +684,7 @@ void testRemoveObject() {
       await minio.removeObject(bucketName, objectName);
 
       await for (var chunk in minio.listObjects(bucketName)) {
-        expect(chunk.objects.contains(objectName), isFalse);
+        expect(chunk.objects.contains(objectName as Object), isFalse);
       }
     });
 
@@ -706,7 +706,7 @@ void testListObjects() {
     final minio = getMinioClient();
     final bucketName = uniqueName();
     final objectName = uniqueName();
-    final objectNameUtf8 = uniqueName() + '文件ファイル。ㄴㅁㄴ';
+    final objectNameUtf8 = '${uniqueName()}文件ファイル。ㄴㅁㄴ';
     final data = Uint8List.fromList([1, 2, 3, 4, 5]);
 
     setUpAll(() async {
